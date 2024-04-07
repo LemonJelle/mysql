@@ -1,0 +1,19 @@
+---
+- name: Install MySQL on Ubuntu
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    state: present
+  loop: 
+    - mysql-server
+    - mysql-client
+    - python3-mysqldb
+    - libmysqlclient-dev
+  
+
+- name: Start the MySQL service
+  ansible.builtin.service:
+    name: mysql
+    state: started
+
+
+
